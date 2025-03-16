@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     if (!userData || userData.role !== "RECIPIENT") {
         alert("Only recipients can access this page.");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
         return;
     }
 
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             bloodType: bloodType
         };
 
-        fetch(`http://localhost:8080/recipient/request?userId=${userData.id}`, {
+        fetch(`https://organs-donation-website-production.up.railway.app/recipient/request?userId=${userData.id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

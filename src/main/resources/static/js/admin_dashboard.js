@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const userData = localStorage.getItem("user");
     if (!userData) {
       alert("You must log in first.");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
       return;
     }
     const user = JSON.parse(userData);
     if (user.role !== "ADMIN") {
       alert("Access Denied! Only admins can access this page.");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
       return;
     }
     // Set admin name in the overview section
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Fetch Donor Requests and update pending count
     function fetchDonorRequests() {
-      fetch("http://localhost:8080/donor/all")
+      fetch("https://organs-donation-website-production.up.railway.app/donor/all")
         .then(response => response.json())
         .then(data => {
           // Filter pending donor requests (assuming 'status' property exists)
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Fetch Recipient Requests and update pending count
     function fetchRecipientRequests() {
-      fetch("http://localhost:8080/recipient/all")
+      fetch("https://organs-donation-website-production.up.railway.app/recipient/all")
         .then(response => response.json())
         .then(data => {
           // Filter pending recipient requests (assuming 'status' property exists)
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Function to Verify Donor using the provided API endpoint
     window.verifyDonor = function (donorId) {
-      fetch(`http://localhost:8080/admin/verify/donor/${donorId}`, {
+      fetch(`https://organs-donation-website-production.up.railway.app/admin/verify/donor/${donorId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" }
       })
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Function to Reject Donor using the provided API endpoint
     window.rejectDonor = function (donorId) {
-      fetch(`http://localhost:8080/admin/reject/donor/${donorId}`, {
+      fetch(`https://organs-donation-website-production.up.railway.app/admin/reject/donor/${donorId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" }
       })
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Function to Verify Recipient using the provided API endpoint
     window.verifyRecipient = function (recipientId) {
-      fetch(`http://localhost:8080/admin/verify/recipient/${recipientId}`, {
+      fetch(`https://organs-donation-website-production.up.railway.app/admin/verify/recipient/${recipientId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" }
       })
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Function to Reject Recipient using the provided API endpoint
     window.rejectRecipient = function (recipientId) {
-      fetch(`http://localhost:8080/admin/reject/recipient/${recipientId}`, {
+      fetch(`https://organs-donation-website-production.up.railway.app/admin/reject/recipient/${recipientId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" }
       })
@@ -152,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       localStorage.removeItem("authToken");
       localStorage.removeItem("user");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     });
   });
-  

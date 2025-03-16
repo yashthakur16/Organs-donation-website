@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const userData = localStorage.getItem("user");
     if (!userData) {
       alert("You must log in first.");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
       return;
     }
     const user = JSON.parse(userData);
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
       e.preventDefault();
       localStorage.removeItem("authToken");
       localStorage.removeItem("user");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     });
     
     // Fetch notifications from API using the logged-in user's ID
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
     async function fetchNotifications(userId) {
       try {
         // Replace the URL with your actual API endpoint
-        const response = await fetch(`http://localhost:8080/api/notifications/${userId}`);
+        const response = await fetch(`https://organs-donation-website-production.up.railway.app/api/notifications/${userId}`);
         if (!response.ok) {
           throw new Error("Failed to fetch notifications");
         }
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
           // On click, mark the notification as read
           li.addEventListener("click", async function() {
             try {
-              await fetch(`http://localhost:8080/api/notifications/read/${notification.id}`, {
+              await fetch(`https://organs-donation-website-production.up.railway.app/api/notifications/read/${notification.id}`, {
                 method: "PUT"
               });
               // Visual update to show it is read (optional)

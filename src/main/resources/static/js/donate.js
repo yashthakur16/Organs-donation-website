@@ -10,7 +10,7 @@ document.getElementById("donateForm").addEventListener("submit", function (e) {
   
     if (!userData.id) {
       alert("User ID is missing. Please log in again.");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
       return;
     }
   
@@ -40,7 +40,7 @@ document.getElementById("donateForm").addEventListener("submit", function (e) {
     }
   
     // Call the donation API endpoint
-    fetch("http://localhost:8080/donor/donate", {
+    fetch("https://organs-donation-website-production.up.railway.app/donor/donate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

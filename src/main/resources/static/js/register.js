@@ -34,7 +34,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
   registerBtn.disabled = true;
 
   try {
-    const response = await fetch("http://localhost:8080/auth/register", {
+    const response = await fetch("https://organs-donation-website-production.up.railway.app/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -44,7 +44,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
 
     if (response.ok) {
       alert("Registration successful! You can now log in.");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     } else {
       alert("Registration failed. Please try again.");
     }

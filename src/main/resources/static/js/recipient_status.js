@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!userData || userData.role !== "RECIPIENT") {
         alert("Access Denied! Only recipients can access this page.");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
         return;
     }
 
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function fetchRecipientStatus() {
         showLoading(statusContainer);
 
-        fetch("http://localhost:8080/recipient/all")
+        fetch("https://organs-donation-website-production.up.railway.app/recipient/all")
             .then(response => response.json())
             .then(data => {
                 console.log("Fetched Recipient Data:", data); // Debugging Step
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function fetchMatchingUpdates() {
         showLoading(matchesContainer);
 
-        fetch("http://localhost:8080/matching/all")
+        fetch("https://organs-donation-website-production.up.railway.app/matching/all")
             .then(response => response.json())
             .then(data => {
                 console.log("Fetched Matching Data:", data); // Debugging Step
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Make logout function globally accessible
     window.logout = function () {
         localStorage.removeItem("user");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     };
 
     fetchRecipientStatus();

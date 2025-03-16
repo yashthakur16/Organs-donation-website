@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!userData) {
         alert("Please log in to access the chat.");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
         return;
     }
 
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Load available users
     function loadUsers() {
-        fetch("http://localhost:8080/api/users/all")
+        fetch("https://organs-donation-website-production.up.railway.app/api/users/all")
             .then(response => response.json())
             .then(users => {
                 console.log("Users fetched:", users);
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function loadChat() {
         if (!selectedReceiverId) return;
 
-        fetch(`http://localhost:8080/api/chats/history?user1Id=${userData.id}&user2Id=${selectedReceiverId}`)
+        fetch(`https://organs-donation-website-production.up.railway.app/api/chats/history?user1Id=${userData.id}&user2Id=${selectedReceiverId}`)
             .then(response => response.json())
             .then(messages => {
                 console.log("Messages fetched:", messages);
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fetch("http://localhost:8080/api/chats/send", {
+        fetch("https://organs-donation-website-production.up.railway.app/api/chats/send", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

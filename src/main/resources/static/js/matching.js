@@ -3,14 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!userData || userData.role !== "RECIPIENT") {
         alert("Access restricted to recipients.");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
         return;
     }
 
     const matchesList = document.getElementById("matchesList");
 
     function findMatches() {
-        fetch(`http://localhost:8080/matching/find?recipientId=${userData.id}`, {
+        fetch(`https://organs-donation-website-production.up.railway.app/matching/find?recipientId=${userData.id}`, {
             method: "POST"
         })
         .then(response => response.text())
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function loadMatches() {
-        fetch("http://localhost:8080/matching/all")
+        fetch("https://organs-donation-website-production.up.railway.app/matching/all")
             .then(response => response.json())
             .then(matches => {
                 if (matches.length === 0) {
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function logout() {
         localStorage.removeItem("user");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     }
 
     // Auto-load matches when the page loads

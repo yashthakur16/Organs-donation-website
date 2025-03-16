@@ -22,6 +22,6 @@ document.getElementById("notificationIcon").addEventListener("click", function(e
   document.getElementById("logoutLink").addEventListener("click", function(e) {
     e.preventDefault();
     alert("Logging out...");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   });
   
