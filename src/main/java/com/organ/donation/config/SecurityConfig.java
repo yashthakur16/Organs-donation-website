@@ -31,15 +31,20 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:3000", "http://127.0.0.1:5500")); // Add frontend URLs
+        configuration.setAllowedOrigins(List.of(
+            "http://localhost:3000", 
+            "http://127.0.0.1:5500",
+            "https://organs-donation-website-production.up.railway.app" // Add production origin here
+        ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true);
-
+    
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+    
 
     @Bean
     public PasswordEncoder passwordEncoder() {
