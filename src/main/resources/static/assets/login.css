@@ -134,3 +134,73 @@
     text-decoration: none;
   }
   
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Adjust navbar padding */
+  .navbar {
+    padding: 10px 20px;
+  }
+  
+  /* Stack nav-menu items vertically for better accessibility */
+  .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  /* Make the container full width and stack the sides vertically */
+  .container {
+    width: 100%;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  
+  /* Adjust left section height for mobile view */
+  .left {
+    height: 200px;
+    background-position: center;
+  }
+  
+  /* Reduce padding on the right section */
+  .right {
+    padding: 20px;
+  }
+  
+  /* Reduce font sizes for headings and paragraphs if needed */
+  .right h2 {
+    font-size: 24px;
+  }
+  
+  .right p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for smaller devices */
+  .navbar {
+    padding: 10px;
+  }
+  
+  .nav-logo {
+    font-size: 20px;
+  }
+  
+  .nav-menu li a {
+    font-size: 14px;
+  }
+  
+  .right {
+    padding: 15px;
+  }
+  
+  .right h2 {
+    font-size: 22px;
+  }
+  
+  .sign-in-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
