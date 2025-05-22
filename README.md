@@ -76,7 +76,7 @@ MySQL 8+
 Node.js (for Socket.IO)
 
 # Clone repository
-git clone https://github.com/yourusername/heart2help.git
+git clone https://github.com/yashthakur16/Organs-donation-website.git
 
 # Configure database
 mysql> CREATE DATABASE organ_donation;
