@@ -13,17 +13,41 @@
       padding: 0;
       background: #ffe6f2;
     }
-    .navbar {
-      background: #ff66a3;
-      padding: 15px 0;
-      text-align: center;
-    }
-    .nav-container a {
-      color: white;
-      font-size: 24px;
-      font-weight: 600;
-      text-decoration: none;
-    }
+     /* Navigation Bar */
+  .navbar {
+    background: linear-gradient(315deg, #EF86BA, #F8F5F7);
+    padding: 10px 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-menu li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+  }
     .contact-container {
       max-width: 600px;
       margin: 50px auto;
@@ -74,7 +98,12 @@
 <body>
   <nav class="navbar">
     <div class="nav-container">
-      <a href="home.html">Heart2Heal</a>
+      <a href="home.html" class="nav-logo">Heart2Heal</a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
   </nav>
 

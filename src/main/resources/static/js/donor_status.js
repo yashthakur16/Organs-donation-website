@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+     btn.addEventListener('click',function()
+{
+    alert("No Successful Donation Completed Yet");
+});
+
     function fetchDonorStatus() {
         fetch(`https://organs-donation-website-production.up.railway.app/donor/all`)
             .then(response => response.json())

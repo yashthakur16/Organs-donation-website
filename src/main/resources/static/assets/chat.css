@@ -127,3 +127,8 @@ body {
 .chat-input button:hover {
     background: #0a7b6c;
 }
+
+.role-btn[data-role="Admin"] {
+background-color: #ccc;
+cursor: not-allowed;
+}

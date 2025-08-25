@@ -4,11 +4,16 @@ const roleInput = document.getElementById("role");
 
 roleButtons.forEach(button => {
   button.addEventListener("click", function () {
+    if (this.getAttribute("data-role") === "Admin") {
+      alert("You don't have permission to create an Admin account.");
+      return; // stop execution, don't assign role
+    }
+
     // Remove 'active' class from all role buttons
     roleButtons.forEach(btn => btn.classList.remove("active"));
     // Add 'active' class to the clicked button
     this.classList.add("active");
-    // Update the hidden input value with the selected role
+    // Update hidden input with allowed role
     roleInput.value = this.getAttribute("data-role");
   });
 });
