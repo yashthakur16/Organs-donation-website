@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    let btn=document.querySelector('btn');
+
      btn.addEventListener('click',function()
 {
     alert("No Successful Donation Completed Yet");
